@@ -18,8 +18,10 @@ app.use(express.static('public'))
 
 app.set('view engine', 'ejs')
 
+const publicacoes = []
+
 app.get('/', (req, res) => {
-  res.render('home', { conteudo: homeConteudoInicial })
+  res.render('home', { conteudo: homeConteudoInicial, artigos: publicacoes })
 })
 
 app.get('/sobre', (req, res) => {
@@ -35,10 +37,13 @@ app.get('/compose', (req, res) => {
 })
 
 app.post('/compose', (req, res) => {
-  let entrada = req.body.texto
-  let corpo = req.body.corpo
-  console.log(entrada)
-  console.log(corpo)
+  const publicacao = {
+    tituloPublicacao: req.body.titulo,
+    corpoPublicacao: req.body.corpo,
+  }
+
+  publicacoes.push(publicacao)
+
   res.redirect('/')
 })
 
