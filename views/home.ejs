@@ -1,8 +1,11 @@
 <%- include('partials/header') -%> 
+
   <h1>Home</h1>
   <p><%= conteudo %></p>
+  
   <% artigos.forEach(artigo => { %>
     <h2><%= artigo.tituloPublicacao %></h2>
     <%- artigo.corpoPublicacao -%>
   <% }) %>
+
 <%- include('partials/footer') -%> 

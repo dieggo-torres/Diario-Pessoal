@@ -1,6 +1,8 @@
 const express = require('express')
 const porta = process.env.PORT || 3000
 
+const _ = require('lodash')
+
 const ejs = require('ejs')
 
 const homeConteudoInicial =
@@ -45,6 +47,20 @@ app.post('/compose', (req, res) => {
   publicacoes.push(publicacao)
 
   res.redirect('/')
+})
+
+app.get('/artigos/:nomeArtigo', (req, res) => {
+  const tituloProcurado = _.lowerCase(req.params.nomeArtigo)
+
+  publicacoes.forEach((publicacao) => {
+    const tituloArmazenado = _.lowerCase(publicacao.tituloPublicacao)
+    if (tituloProcurado === tituloArmazenado) {
+      res.render('post', {
+        tituloArtigo: publicacao.tituloPublicacao,
+        conteudoArtigo: publicacao.corpoPublicacao,
+      })
+    }
+  })
 })
 
 app.listen(porta, () => {
