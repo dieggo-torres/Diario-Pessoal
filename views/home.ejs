@@ -2,10 +2,11 @@
 
   <h1>Home</h1>
   <p><%= conteudo %></p>
-  
+
   <% artigos.forEach(artigo => { %>
     <h2><%= artigo.tituloPublicacao %></h2>
-    <%- artigo.corpoPublicacao -%>
+    <%- `${artigo.corpoPublicacao.substring(0, 100)} ...` -%>
+    <a href="artigos/<%= artigo.tituloPublicacao %>">Leia mais</a>
   <% }) %>
 
 <%- include('partials/footer') -%> 
