@@ -1,5 +1,5 @@
 {
-  "name": "ejs-challenge",
+  "name": "Blogue",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,11 +7,12 @@
     "start": "node app.js",
     "server": "nodemon app.js"
   },
-  "author": "",
+  "author": "Diego Moura Torres",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "lodash": "^4.17.11"
+    "mongoose": "^6.3.4"
   }
 }

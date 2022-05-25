@@ -1,12 +1,11 @@
-<%- include('partials/header') -%> 
+<%- include('partials/header') -%>
 
-  <h1>Home</h1>
-  <p><%= conteudo %></p>
+    <h1>Home</h1>
 
-  <% artigos.forEach(artigo => { %>
-    <h2><%= artigo.tituloPublicacao %></h2>
-    <%- `${artigo.corpoPublicacao.substring(0, 100)} ...` -%>
-    <a href="artigos/<%= artigo.tituloPublicacao %>">Leia mais</a>
-  <% }) %>
+    <% artigos.forEach(artigo=> { %>
+      <h2 class="mt-3"><%= artigo.titulo %></h2>
+      <%- `${artigo.conteudo.substring(0, 100)}` -%>
+      <a class="btn btn-secondary btn-sm" href="artigos/<%= artigo._id %>">Leia mais</a>
+    <% }) %> 
 
-<%- include('partials/footer') -%> 
+<%- include('partials/footer') -%>
